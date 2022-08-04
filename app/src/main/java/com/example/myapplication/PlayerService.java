@@ -58,10 +58,15 @@ public class PlayerService extends Service {
         }
 
         Bitmap icon = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+        String content = "Playing";
+
+        if(isPlaying()){
+            content = "Pausing";
+        }
         Notification notification = new Notification.Builder(getApplicationContext())
                 .setChannelId(CHANNEL_ONE_ID)
-                .setContentTitle("My Notif")
-                .setContentText("the notif")
+                .setContentTitle("Music Machine")
+                .setContentText(content)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setLargeIcon(icon)
                 .build();
